@@ -19,13 +19,13 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install psutil pyadl pyinstaller
+          pip install psutil pyadl pystray Pillow pyinstaller
 
       - name: Build EXE
         run: |
-          pyinstaller --onefile --noconsole system_monitor_overlay.py
+          pyinstaller --onefile --noconsole --name system_monitor_overlay system_monitor_overlay.py
 
-      - name: Upload EXE as artifact
+      - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
           name: system_monitor_overlay
